@@ -9,9 +9,6 @@ function queue() {
   this.show = show
   this.peek = peek
 }
-function enqueue(element) {
-    this.data.push(element)
-}
 
 function dequeue() {
   if (this.empasosTy()) {
@@ -27,6 +24,9 @@ function empasosTy() {
     return true
   else
     return false
+}
+function enqueue(element) {
+    this.data.push(element)
 }
 
 function show() {

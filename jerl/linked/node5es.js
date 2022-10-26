@@ -1,10 +1,10 @@
 export { Linked, Node }
 import Node from './node.js'
-
-function Linked(n) {
-  this.head = n
-  this.tail = n
+function Linked(n) {//node
+  this.head = n//node
+  this.tail = n//node
   this.size = 1
+
   this.getHead = getHead
   this.prepend = prepend
   this.append = append
@@ -15,17 +15,17 @@ function Linked(n) {
   this.InsertBefore = InsertBefore
 }
 
+
 function getHead() {
   return this.head
 }
-
-function prepend(n) {
+function prepend(n) {//new node
   n.next = this.head
   this.head = n
   this.size++
 }
 
-function append(n) {
+function append(n) {//new node
   n.next = null//
   this.tail.next = n
   this.tail = n
@@ -34,62 +34,66 @@ function append(n) {
 
 function traverse() {
   let c = this.head
-  while (c) {
+  while (c) {//exists
+    //console.log(c.key)
     console.log(c.data)
     c = c.next
   }
   console.log('\n')
 }
 
+//
+// exercises 1/2do
+//
 function contains(v) {
   let c = this.head
-  let enc = "";
-  while (c) {
+  let encontrar = false;
+
+  while (c) {//exists
     if (v == c.data) {
-      enc = c.data
+      encontrar = c.data
     }
     c = c.next
   }
-  return enc
+  return encontrar
 
 }
 function getTail() {
   let c = this.head
-  var t = ""
+  var cola = ""
   while (c) {
-    t = c.data
+    cola = c.data
     c = c.next
   }
-  return t
+  return cola
 }
-
-function InsertAfter(v, o) {
+//Metodos nuevos
+function InsertAfter(n, e) {
   let c = this.head
-  let aux;
-  while (c) {
-    if (v == c.data) {
-      aux = c.next
-      c.next = o
-      o.next = aux
+  let direcciones;
+  while (c) {//exists
+    if (e == c.data) {
+      direcciones = c.next
+      c.next = n
+      n.next = direcciones
     }
     c = c.next
   }
 }
-
-function InsertBefore(v, o) {
+function InsertBefore(n, e) {
   let c = this.head
-  let prev, aux
+  let obj_ant, direcciones
   if (c.next == null) {
-    this.prepend(o)
+    this.prepend(n)
   } else {
-    if (v != this.head.data) {
-      while (c) {
-        if (v != c.data) {
-          prev = c
+    if (e != this.head.data) {
+      while (c) {//exists
+        if (e != c.data) {
+          obj_ant = c
         } else {
-          aux = prev.next
-          prev.next = o
-          o.next = aux
+          direcciones = obj_ant.next
+          obj_ant.next = n
+          n.next = direcciones
         }
         c = c.next
       }

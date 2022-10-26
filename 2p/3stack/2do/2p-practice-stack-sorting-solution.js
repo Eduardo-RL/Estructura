@@ -15,10 +15,6 @@ function stack() {
   this.peek = peek
 }
 
-function push(element) {
-  this.data.unshift(element)
-}
-
 function pop() {
   if (this.empasosTy()) {
     console.log("Pila vacia")
@@ -33,6 +29,10 @@ function empasosTy() {
     return true
   else
     return false
+}
+
+function push(element) {
+  this.data.unshift(element)
 }
 
 function show() {
